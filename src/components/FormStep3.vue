@@ -36,14 +36,14 @@
         />
       </div>
     </div>
-    <div class="form_part-3_btn">
+    <!-- <div class="form_part-3_btn">
       <div class="form_part-3_btn-prev btn-prev" @click.stop.prevent="PrevStep">
         ← 上一步
       </div>
       <div class="form_part-3_btn-next btn-next" @click.stop.prevent="NextStep">
         確認結帳
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -66,15 +66,15 @@ export default {
       user: this.initialUser,
     };
   },
-  methods: {
-    NextStep() {
-      this.$emit("final-submit");
-    },
-    PrevStep() {
-      this.$emit("before-submit");
-      this.$router.push({ name: "delivery" });
-    },
-  },
+  // methods: {
+  //   NextStep() {
+  //     this.$emit("final-submit");
+  //   },
+  //   PrevStep() {
+  //     this.$emit("before-submit");
+  //     this.$router.push({ name: "delivery" });
+  //   },
+  // },
 };
 </script>
 

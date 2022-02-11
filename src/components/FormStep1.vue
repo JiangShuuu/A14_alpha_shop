@@ -56,11 +56,11 @@
         />
       </div>
     </div>
-    <div class="form_part-1_btn">
+    <!-- <div class="form_part-1_btn">
       <div class="form_part-1_btn-next btn-next" @click.stop.prevent="NextStep">
         下一步 →
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -110,12 +110,12 @@ export default {
       user: this.initialUser,
     };
   },
-  methods: {
-    NextStep() {
-      this.$emit("after-submit");
-      this.$router.push({ name: "delivery" });
-    },
-  },
+  // methods: {
+  //   NextStep() {
+  //     this.$emit("after-submit");
+  //     this.$router.push({ name: "delivery" });
+  //   },
+  // },
 };
 </script>
 

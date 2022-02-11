@@ -35,7 +35,7 @@
     </div>
     <div class="content_right_list_fee">
       <span>運費</span>
-      <p>{{ delivery === 0 ? "免運費" : `$${delivery}` }}</p>
+      <p>{{ delivery | pluralize }}</p>
     </div>
     <div class="content_right_list_total">
       <span>小計</span>
@@ -64,13 +64,18 @@ export default {
   computed: {
     sum() {
       let itemCost = 0;
-      this.items.map((item) => {
+      this.items.forEach((item) => {
         let itemTotle = 0;
         itemCost += item.num * item.cost;
         itemTotle += itemCost;
         this.totleCost = itemTotle + this.delivery;
       });
       return this.totleCost;
+    },
+  },
+  filters: {
+    pluralize(n) {
+      return n === 0 ? "免運費" : `$${n}`;
     },
   },
   methods: {
@@ -90,25 +95,25 @@ export default {
     initialItems() {
       this.items = this.initialItems;
     },
-    items: {
-      handler: function () {
-        this.sum();
-      },
-      immediate: true,
-      deep: true,
-    },
-    delivery: {
-      handler: function () {
-        this.sum();
-      },
-      immediate: true,
-      deep: true,
-    },
     totleCost: {
       handler: function () {
         this.totleCostChange();
       },
     },
+    // items: {
+    //   handler: function () {
+    //     this.sum();
+    //   },
+    //   immediate: true,
+    //   deep: true,
+    // },
+    // delivery: {
+    //   handler: function () {
+    //     this.sum();
+    //   },
+    //   immediate: true,
+    //   deep: true,
+    // },
   },
 };
 </script>

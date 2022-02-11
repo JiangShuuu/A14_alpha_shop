@@ -12,8 +12,8 @@
             <div class="form_area">
               <router-view
                 :initial-user="user"
-                @after-submit="AfterSubmit"
-                @before-submit="BeforeSubmit"
+                @after-submit="afterSubmit"
+                @before-submit="beforeSubmit"
                 @final-submit="finalSubmit"
               />
             </div>
@@ -28,6 +28,12 @@
             @delete-item="deleteItem"
           />
         </div>
+        <StepBtn
+          class="step_Btn"
+          @after-submit="afterSubmit"
+          @before-submit="beforeSubmit"
+          @final-submit="finalSubmit"
+        />
       </div>
     </section>
     <Footer />
@@ -40,6 +46,7 @@ import StepPanel from "../components/StepPanel.vue";
 import CheckOutModal from "../components/CheckOutModal.vue";
 import Footer from "../components/Footer.vue";
 import axios from "axios";
+import StepBtn from "../components/StepBtn.vue";
 
 // const dummyData = {
 //   items: [
@@ -67,6 +74,7 @@ export default {
     StepPanel,
     CheckOutModal,
     Footer,
+    StepBtn,
   },
 
   data() {
@@ -115,10 +123,10 @@ export default {
         this.formStep = 2;
       }
     },
-    AfterSubmit() {
+    afterSubmit() {
       this.formStep += 1;
     },
-    BeforeSubmit() {
+    beforeSubmit() {
       this.formStep -= 1;
     },
     finalSubmit() {
@@ -170,6 +178,13 @@ export default {
       &_right {
         width: 35%;
       }
+    }
+  }
+  .step_Btn {
+    @include web {
+      width: 52%;
+      position: absolute;
+      bottom: -6rem;
     }
   }
 }

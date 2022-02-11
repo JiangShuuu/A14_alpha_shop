@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="form_part-2_btn">
+      <!-- <div class="form_part-2_btn">
         <div
           class="form_part-2_btn-prev btn-prev"
           @click.stop.prevent="PrevStep"
@@ -58,7 +58,7 @@
         >
           下一步 →
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -79,16 +79,16 @@ export default {
       user: this.initialUser,
     };
   },
-  methods: {
-    NextStep() {
-      this.$emit("after-submit");
-      this.$router.push({ name: "payment" });
-    },
-    PrevStep() {
-      this.$emit("before-submit");
-      this.$router.push({ name: "address" });
-    },
-  },
+  // methods: {
+  //   NextStep() {
+  //     this.$emit("after-submit");
+  //     this.$router.push({ name: "payment" });
+  //   },
+  //   PrevStep() {
+  //     this.$emit("before-submit");
+  //     this.$router.push({ name: "address" });
+  //   },
+  // },
 };
 </script>
 
